@@ -1,0 +1,23 @@
+# render.yaml
+# User-operated Blueprint; this file does not provision anything by itself.
+# Free is documented for web services, but is for demos, not production.
+# Review current pricing, region, and quotas before approving the first deploy.
+services:
+  - type: web
+    name: naqaa
+    runtime: docker
+    plan: free
+    branch: main
+    dockerfilePath: ./Dockerfile
+    dockerContext: .
+    autoDeployTrigger: "off"
+    healthCheckPath: /_stcore/health
+    envVars:
+      - key: AUTH_MODE
+        value: oidc
+      - key: ALLOWED_EMAILS
+        sync: false
+    # After creating the service, add Environment > Secret Files > secrets.toml
+    # with [auth] settings. Until that is done, AUTH_MODE=oidc must fail closed.
+    # Docker CMD binds 0.0.0.0:$PORT; Render supplies PORT (normally 10000).
+    # No databases, persistent disks, CRM services, or billing resources.

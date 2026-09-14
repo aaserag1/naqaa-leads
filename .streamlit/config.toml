@@ -1,0 +1,29 @@
+# .streamlit/config.toml
+# Run Streamlit from the project root so this configuration is loaded.
+[server]
+headless = true
+maxUploadSize = 20
+enableCORS = true
+enableXsrfProtection = true
+enableStaticServing = true
+fileWatcherType = "none"
+
+# Static serving exposes ./static, NOT ./assets. It must contain only the
+# public brand font (never uploads, reports, or secrets). The app can instead
+# embed the bundled assets/Cairo.ttf without a network font request.
+
+[theme]
+primaryColor = "#087f83"
+base = "light"
+
+[browser]
+gatherUsageStats = false
+
+[client]
+showErrorDetails = "none"
+toolbarMode = "viewer"
+
+[secrets]
+# Missing files are ignored. Later files override earlier files.
+# Render mounts its Secret File here at runtime; no secret is baked into Docker.
+files = ["~/.streamlit/secrets.toml", ".streamlit/secrets.toml", "/etc/secrets/secrets.toml"]

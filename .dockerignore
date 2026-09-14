@@ -1,0 +1,15 @@
+# .dockerignore
+# Default-deny build context: add a path only when the Dockerfile needs it.
+**
+!Dockerfile
+!.dockerignore
+!packages.txt
+!requirements.txt
+!app.py
+!.streamlit/
+.streamlit/**
+!.streamlit/config.toml
+!assets/
+assets/**
+!assets/Cairo.ttf.b64
+!assets/OFL-Cairo.txt

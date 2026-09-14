@@ -1,0 +1,77 @@
+# .gitignore
+# Secrets, credentials, and local identity material.
+.env
+.env.*
+*.env
+**/secrets.toml
+**/secrets.*.toml
+.secrets/
+secrets/
+credentials/
+*.pem
+*.key
+*.p12
+*.pfx
+
+# Python environments, caches, builds, and test output.
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+env/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.cache/
+.coverage
+.coverage.*
+htmlcov/
+coverage.xml
+junit*.xml
+build/
+dist/
+*.egg-info/
+*.log
+
+# Never commit uploaded leads or generated reports, even to private repos.
+# Tests should generate synthetic data in memory instead of shipping lead files.
+uploads/
+exports/
+reports/
+downloads/
+data/
+private/
+tmp/
+temp/
+*.csv
+*.tsv
+*.xls
+*.xlsx
+*.xlsm
+*.xlsb
+*.ods
+*.pdf
+*.parquet
+*.feather
+*.arrow
+*.pkl
+*.pickle
+*.db
+*.sqlite
+*.sqlite3
+*.zip
+*.tar
+*.gz
+
+# Static serving is public: permit only the bundled brand font and license.
+/static/*
+!/static/Cairo.ttf
+!/static/OFL-Cairo.txt
+
+# Editor and OS metadata.
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+*.swo
